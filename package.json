@@ -29,7 +29,7 @@
 	"devDependencies": {
 		"grunt": "~0.3.17",
 		"FileReader": "~0.10.2",
-		"bufferjs": "~1.1.0"
+		"bufferjs": "~1.1.0",
 		"File": "~0.10.0"
 	},
 	"keywords": [
