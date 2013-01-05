@@ -1,9 +1,9 @@
-grunt-jsio
-==========
+# grunt-jsio
+
 Grunt task to create [JSIO](https://github.com/alanshaw/JavaScript-Image-Optimiser) resources file.
 
-Getting Started
----------------
+## Getting Started
+
 Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-jsio`
 
 Then add this line to your project's `grunt.js` gruntfile:
