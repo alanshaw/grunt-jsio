@@ -1,6 +1,8 @@
 # grunt-jsio
 
-Grunt task to create [JSIO](https://github.com/alanshaw/JavaScript-Image-Optimiser) resources file.
+Grunt task to create JSIO resources file(s).
+
+[JSIO](https://github.com/alanshaw/JavaScript-Image-Optimiser) is a tiny library that allows you to make fewer requests to your server by packaging all your site image data in a JavaScript file in data uri format.
 
 ## Getting Started
 
@@ -13,7 +15,7 @@ grunt.loadNpmTasks('grunt-jsio');
 ```
 
 [grunt]: http://gruntjs.com/
-[getting_started]: https://github.com/gruntjs/grunt/blob/master/docs/getting_started.md
+[getting_started]: https://github.com/gruntjs/grunt/wiki/Getting-started
 
 Next configure the JSIO task in your `grunt.js` gruntfile:
 
