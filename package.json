@@ -26,11 +26,13 @@
 	"scripts": {
 		"test": "grunt test"
 	},
-	"devDependencies": {
-		"grunt": "~0.3.17",
+	"dependencies": {
 		"FileReader": "~0.10.2",
 		"bufferjs": "~1.1.0",
 		"File": "~0.10.0"
+	},
+	"devDependencies": {
+		"grunt": "~0.3.17"
 	},
 	"keywords": [
 		"gruntplugin",
