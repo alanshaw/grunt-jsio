@@ -1,4 +1,4 @@
-# grunt-jsio
+# grunt-jsio [![Dependency Status](http://david-dm.org/alanshaw/grunt-jsio/status.png)](http://david-dm.org/alanshaw/grunt-jsio)
 
 Grunt task to create JSIO resources file(s).
 
