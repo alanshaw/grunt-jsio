@@ -6,18 +6,20 @@ Grunt task to create JSIO resources file(s).
 
 ## Getting Started
 
-Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-jsio`
+Install this [grunt][grunt] plugin next to your project's [Gruntfile.js][getting_started] with: `npm install grunt-jsio`
 
-Then add this line to your project's `grunt.js` gruntfile:
+[grunt]: http://gruntjs.com/
+[getting_started]: https://github.com/gruntjs/grunt/wiki/Getting-started
+
+_Note: as of version 0.2.0 this plugin requires grunt 0.4. Install version 0.1.0 for grunt 0.3 support._
+
+Then add this line to your project's `Gruntfile.js`:
 
 ```javascript
 grunt.loadNpmTasks('grunt-jsio');
 ```
 
-[grunt]: http://gruntjs.com/
-[getting_started]: https://github.com/gruntjs/grunt/wiki/Getting-started
-
-Next configure the JSIO task in your `grunt.js` gruntfile:
+Next configure the JSIO task in your `Gruntfile.js`:
 
 ```javascript
   jsio: {

@@ -19,47 +19,55 @@ module.exports = function(grunt) {
 		// Tell grunt this is an asynchronous task
 		var done = this.async();
 		
-		// Get the files to process
-		var filePaths = grunt.file.expandFiles(this.file.src);
-		var dest = this.file.dest;
+		var srcDestTodo = this.files.length;
 		
-		var unreadFiles = filePaths.length;
-		var js = '(function(_this){ _this.jsio = _this.jsio || {};' + grunt.utils.linefeed;
-		
-		js += 'jsio.resources={' + grunt.utils.linefeed;
-		
-		grunt.verbose.writeln('Processing:');
-		
-		filePaths.forEach(function(filePath) {
+		this.files.forEach(function(srcDest) {
 			
-			grunt.verbose.writeln(filePath);
+			var srcsTodo = srcDest.src.length;
+			var dest = srcDest.dest;
 			
-			var reader = new FileReader();
+			var js = '(function(_this){ _this.jsio = _this.jsio || {};' + grunt.util.linefeed;
 			
-			reader.onload = function() {
+			js += 'jsio.resources={' + grunt.util.linefeed;
+			
+			grunt.verbose.writeln('Processing:');
+			
+			srcDest.src.forEach(function(src) {
 				
-				var filename = path.basename(filePath);
+				grunt.verbose.writeln(src);
 				
-				js += '"' + filename + '":"' + reader.result + '"';
-				unreadFiles = unreadFiles - 1;
+				var reader = new FileReader();
 				
-				if(unreadFiles === 0) {
+				reader.onload = function() {
 					
-					js += '};})(this);' + grunt.utils.linefeed;
+					var filename = path.basename(src);
 					
-					// Write the new file
-					grunt.file.write(dest, js);
+					js += '"' + filename + '":"' + reader.result + '"';
+					srcsTodo = srcsTodo - 1;
 					
-					grunt.log.ok('JSIO resources file "' + dest + '" created.');
-					
-					done();
-					
-				} else {
-					js += ',' + grunt.utils.linefeed;
-				}
-			};
-			
-			reader.readAsDataURL(new File(filePath));
+					if(srcsTodo === 0) {
+						
+						js += '};})(this);' + grunt.util.linefeed;
+						
+						// Write the new file
+						grunt.file.write(dest, js);
+						
+						grunt.log.ok('JSIO resources file "' + dest + '" created.');
+						
+						srcDestTodo = srcDestTodo - 1;
+						
+						if(srcDestTodo === 0) {
+							done();
+						}
+						
+					} else {
+						js += ',' + grunt.util.linefeed;
+					}
+				};
+				
+				reader.readAsDataURL(new File(src));
+			});
 		});
+		
 	});
 };

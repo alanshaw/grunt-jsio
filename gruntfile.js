@@ -11,16 +11,12 @@ module.exports = function(grunt) {
 			}
 		},
 		
-		test: {
+		nodeunit: {
 			files: ['test/**/*.js']
 		},
 		
-		lint: {
-			files: ['grunt.js', 'tasks/**/*.js', 'test/**/*.js']
-		},
-		
 		watch: {
-			files: '<config:lint.files>',
+			files: '<%= jshint.files %>',
 			tasks: 'default'
 		},
 		
@@ -38,11 +34,15 @@ module.exports = function(grunt) {
 				eqnull: true,
 				node: true,
 				es5: true
-			}
+			},
+			files: ['grunt.js', 'tasks/**/*.js', 'test/**/*.js']
 		}
 	});
 	
 	grunt.loadTasks('tasks');
 	
-	grunt.registerTask('default', 'lint jsio test');
+	grunt.loadNpmTasks('grunt-contrib-nodeunit');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	
+	grunt.registerTask('default', ['jshint', 'jsio', 'nodeunit']);
 };
